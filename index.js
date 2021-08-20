@@ -1,8 +1,8 @@
 
 let caseCaro = []
 
-matrixYX(10, caseCaro)
-matrixCross(10, caseCaro)
+matrixYX(11, caseCaro)
+matrixCross(11, caseCaro)
 console.log(caseCaro)
 
 // Hàm này dùng để khởi tạo tất cả các dòng có thể xảy ra trong mảng
@@ -25,7 +25,7 @@ function Horizontal(row, colum, arrMap) {
     for (let j = 0; j < 5; j++){
         for (let i = 0; i < getColum; i++){
 
-            arr[i][j] = i + (row * 10) + j
+            arr[i][j] = i + (row * colum) + j
                 
         }
     }
@@ -44,7 +44,7 @@ function vertical(row, colum, arrMap) {
     for (let i = 0; i < getColum; i++){
         for (let j = 0; j < 5; j++){
 
-            const value = (j * 10) + (i * 10) + row
+            const value = (j * colum) + (i * colum) + row
 
             arr[i][j] = value
 
@@ -67,15 +67,13 @@ function caseRow(row, colum, arrMap){
     for (let j = 0; j < 5; j++){
         for (let i = 0; i < getColum; i++){
 
-            // const value = j < 1 ? (j * 10) + i + (row * 10) : (j * 10) + j + i  + (row * 10)
-
             // Từ trái qua phải
-            const valueLeft = j < 1 ? (j * 10) + i + (row * 10) : arrLeft[i][j - 1] + 11
+            const valueLeft = j < 1 ? i + (row * colum) : (j * colum) + i + j + (row * colum)
 
             // Từ phải qua trái
-            const valueRight = j < 1 ? 4 + i + (row * 10) : arrRight[i][j - 1] + 9
+            const valueRight = j < 1 ? 4 + i + (row * colum) : (j * colum) + i - j + (row * colum) + 4
 
-            arrLeft[i][j] = valueLeft
+            // arrLeft[i][j] = valueLeft
 
             arrRight[i][j] = valueRight
 
