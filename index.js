@@ -73,7 +73,7 @@ function caseRow(row, colum, arrMap){
             // Từ phải qua trái
             const valueRight = j < 1 ? 4 + i + (row * colum) : (j * colum) + i - j + (row * colum) + 4
 
-            // arrLeft[i][j] = valueLeft
+            arrLeft[i][j] = valueLeft
 
             arrRight[i][j] = valueRight
 
